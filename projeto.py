@@ -35,13 +35,17 @@ class Undyne(pygame.sprite.Sprite):
     
 
 sprite_undyne = pygame.sprite.Group()
-undyne = Undyne(550, 150)
+undyne = Undyne(550, 75)
 sprite_undyne.add(undyne)
 
 #funcionar
 jogo = True
 while jogo:
 
+    #mapa
+    pygame.draw.rect(tela, (255, 255, 255), (580, 380, 150, 150))
+    pygame.draw.rect(tela, (0, 0, 0), (587, 387, 136, 136))
+    
     
     sprite_undyne.draw(tela)
     sprite_undyne.update()
