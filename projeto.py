@@ -38,6 +38,7 @@ sprite_undyne = pygame.sprite.Group()
 undyne = Undyne(550, 75)
 sprite_undyne.add(undyne)
 
+
 #funcionar
 jogo = True
 while jogo:
@@ -46,7 +47,10 @@ while jogo:
     pygame.draw.rect(tela, (255, 255, 255), (580, 380, 150, 150))
     pygame.draw.rect(tela, (0, 0, 0), (587, 387, 136, 136))
     
-    
+    #sprites funfando
+    img = pygame.image.load('coracao.png')
+    coracao = pygame.transform.scale(img, (50, 50))
+    tela.blit(coracao, (630, 430))
     sprite_undyne.draw(tela)
     sprite_undyne.update()
     pygame.display.flip()
