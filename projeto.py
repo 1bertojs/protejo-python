@@ -57,11 +57,10 @@ while jogo:
     time.tick(24)
 
     #musga
+    pygame.mixer.init()
     pygame.mixer.music.load('musga.ogg')
     pygame.mixer.music.play(-1)
     
-
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             jogo = False
