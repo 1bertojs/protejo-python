@@ -39,6 +39,11 @@ undyne = Undyne(550, 75)
 sprite_undyne.add(undyne)
 
 
+#musga
+pygame.mixer.init()
+pygame.mixer.music.load('musga.ogg')
+pygame.mixer.music.play(-1)
+
 #funcionar
 jogo = True
 while jogo:
@@ -55,11 +60,6 @@ while jogo:
     sprite_undyne.update()
     pygame.display.flip()
     time.tick(24)
-
-    #musga
-    pygame.mixer.init()
-    pygame.mixer.music.load('musga.ogg')
-    pygame.mixer.music.play(-1)
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
