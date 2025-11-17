@@ -49,12 +49,17 @@ while jogo:
     
     #sprites funfando
     img = pygame.image.load('coracao.png')
-    coracao = pygame.transform.scale(img, (50, 50))
-    tela.blit(coracao, (630, 430))
+    coracao = pygame.transform.scale(img, (40, 40))
+    tela.blit(coracao, (635, 435))
     sprite_undyne.draw(tela)
     sprite_undyne.update()
     pygame.display.flip()
     time.tick(24)
+
+    #musga
+    pygame.mixer.music.load('musga.ogg')
+    pygame.mixer.music.play(-1)
+    
 
 
     for event in pygame.event.get():
