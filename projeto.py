@@ -17,7 +17,7 @@ class Undyne(pygame.sprite.Sprite):
         super().__init__()
         self.sprite = []
         for i in range(0, 90):
-            img = pygame.image.load(f'imagens/sprite_{i}.png').convert_alpha()
+            img = pygame.image.load(f'undyne sprites/sprite_{i}.png').convert_alpha()
             self.sprite.append(img)
         self.sprite_atual = 0
         self.image = self.sprite[self.sprite_atual]
@@ -53,7 +53,7 @@ while jogo:
     pygame.draw.rect(tela, (0, 0, 0), (587, 387, 136, 136))
     
     #sprites funfando
-    img = pygame.image.load('coracao.png')
+    img = pygame.image.load('imagens/coracao.png')
     coracao = pygame.transform.scale(img, (40, 40))
     tela.blit(coracao, (635, 435))
     sprite_undyne.draw(tela)
