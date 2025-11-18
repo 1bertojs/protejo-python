@@ -56,11 +56,18 @@ while jogo:
     img = pygame.image.load('imagens/coracao.png')
     coracao = pygame.transform.scale(img, (40, 40))
     tela.blit(coracao, (635, 435))
+    escudocima = pygame.image.load('imagens/escudo cima.png')
+    tela.blit(escudocima, (600, 385))
     sprite_undyne.draw(tela)
     sprite_undyne.update()
     pygame.display.flip()
     time.tick(24)
     
+    #controles do escudo
+    #if event.type == pygame.KEYDOWN:
+     #   if event.key == pygame.K_w or pygame.K_UP:
+
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             jogo = False
