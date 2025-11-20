@@ -54,36 +54,32 @@ while jogo:
     
     #escudo
 
-    escudoc = pygame.image.load('imagens/escudo cima.png')
-    escudocima = pygame.transform.scale(escudoc, (100, 30))
-    escudob = pygame.image.load('imagens/escudo baixo.png')
-    escudobaixo = pygame.transform.scale(escudob, (100, 30))
-    escudod = pygame.image.load('imagens/escudo dir.png')
-    escudodireita = pygame.transform.scale(escudod, (30, 100))
-    escudoe = pygame.image.load('imagens/escudo esq.png')
-    escudoesquerda = pygame.transform.scale(escudoe, (30, 100))
+    escudocima = pygame.image.load('imagens/escudo0.png')
+    escudoesquerda = pygame.image.load('imagens/escudo1.png')
+    escudobaixo = pygame.image.load('imagens/escudo2.png')
+    escudodireita = pygame.image.load('imagens/escudo3.png')
     esc_img = escudocima
-    esc_x = 600
-    esc_y = 405
+    esc_x = 605
+    esc_y = 365
 
     #controles do escudo
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_w or pygame.K_UP:
+            if event.key == pygame.K_w or  event.key == pygame.K_UP:
                 esc_img = escudocima
-                esc_x = 600
-                esc_y = 385
-            elif event.key == pygame.K_s or pygame.K_DOWN:
+                esc_x = 605
+                esc_y = 365
+            elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
                 esc_img = escudobaixo
-                esc_x = 600
-                esc_y = 485
-            elif event.key == pygame.K_a or pygame.K_LEFT:
+                esc_x = 605
+                esc_y = 505
+            elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 esc_img = escudoesquerda
-                esc_x = 550
+                esc_x = 530
                 esc_y = 435
-            elif event.key == pygame.K_d or pygame.K_RIGHT:
+            elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 esc_img = escudodireita
-                esc_x = 650
+                esc_x = 630
                 esc_y = 435
 
     #sprites funfando
