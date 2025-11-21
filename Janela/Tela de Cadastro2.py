@@ -32,7 +32,7 @@ def validar_senhas():
         return False
     return True
 
-def mostrar_emoji(caminho= 'imagem/pngegg.png'):
+def mostrar_emoji(caminho='janela/imagem/pngegg.png'):
     try:
         tela.emoji_img = tk.PhotoImage(file=caminho)
         if hasattr(tela, "emoji_label") and tela.emoji_label.winfo_exists():
