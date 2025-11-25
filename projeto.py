@@ -7,7 +7,7 @@ relogio = pygame.time.Clock()
 
 #tela
 largura_tela = 1300
-altura_tela = 700
+altura_tela = 900
 tela = pygame.display.set_mode((largura_tela, altura_tela))
 pygame.display.set_caption("Undyne the undying boss battle")
 
@@ -109,8 +109,8 @@ class Seta(pygame.sprite.Sprite):
 
 grupo_setas = pygame.sprite.Group()
 temporizador_spawn = 0
-ATRASO_SPAWN = 600
-vida_coracao = 5
+ATRASO_SPAWN = 500
+vida_coracao = 2
 fim_de_jogo = False
 tempo_final_ms = 0
 pygame.font.init()
@@ -145,18 +145,22 @@ while jogo:
                 imagem_escudo = escudocima
                 escudo_x = coracao_x - 2.5*espaco
                 escudo_y = coracao_y - imagem_escudo.get_height() + 3*espaco
+                escudo_rect = imagem_escudo.get_rect(topleft=(int(escudo_x), int(escudo_y)), size=(100, 30))
             elif event.key in (pygame.K_s, pygame.K_DOWN):
                 imagem_escudo = escudobaixo
                 escudo_x = coracao_x - 2.5*espaco
                 escudo_y = coracao_y + 20
+                escudo_rect = imagem_escudo.get_rect(topleft=(int(escudo_x), int(escudo_y)), size=(100, 30))
             elif event.key in (pygame.K_a, pygame.K_LEFT):
                 imagem_escudo = escudoesquerda
                 escudo_x = coracao_x - imagem_escudo.get_width() + 3*espaco
                 escudo_y = coracao_y + 25 - imagem_escudo.get_height()//2
+                escudo_rect = imagem_escudo.get_rect(topleft=(int(escudo_x), int(escudo_y)), size=(30, 100))
             elif event.key in (pygame.K_d, pygame.K_RIGHT):
                 imagem_escudo = escudodireita
                 escudo_x = coracao_x + 20
                 escudo_y = coracao_y + 30 - imagem_escudo.get_height()//2
+                escudo_rect = imagem_escudo.get_rect(topleft=(int(escudo_x), int(escudo_y)), size=(30, 100))
 
     # spawn de setas
     if not fim_de_jogo:
@@ -187,7 +191,7 @@ while jogo:
             delta_x = centro_coracao_x - sx
             delta_y = centro_coracao_y - sy
             distancia = math.hypot(delta_x, delta_y) or 1
-            velocidade = 10
+            velocidade = 25
             vel_x = delta_x/distancia * velocidade
             vel_y = delta_y/distancia * velocidade
             seta = Seta(sx, sy, vel_x, vel_y, imagem=imagem)
@@ -207,11 +211,11 @@ while jogo:
     # desenhar escudo
     tela.blit(imagem_escudo, (int(escudo_x), int(escudo_y)))
 
-    # sprites animados de Undyne
+    # sprites Undyne animado
     sprite_undyne.draw(tela)
     sprite_undyne.update()
 
-    #desenhar setas
+    #setas
     if not fim_de_jogo:
         grupo_setas.update()
     for a in grupo_setas:
@@ -229,14 +233,12 @@ while jogo:
             a.kill()
             vida_coracao -= 1
             if vida_coracao <= 0:
-                # trigger game over state
                 fim_de_jogo = True
-                # record survival time
                 if inicio_musica:
                     tempo_final_ms = pygame.time.get_ticks() - inicio_musica
                 else:
                     tempo_final_ms = pygame.time.get_ticks()
-    # mostrar timer e HUD ou tela de Game Over
+    # mostrar timer e tela de Game Over
     if not fim_de_jogo:
         agora_ms = pygame.time.get_ticks()
         if inicio_musica:
